@@ -146,7 +146,7 @@ PRIVATE void handle_normal(u32 key)
                         }
 
                 case TAB:
-                        disp_str("    ");
+                        disp_pos += 8;
                         set_cursor(disp_pos / 2);
                         *tty_p++ = '\t';
                         break;
@@ -239,7 +239,7 @@ PRIVATE void handle_esc(u32 key)
                         break;
 
                 case TAB:
-                        disp_str("    ");
+                        disp_pos += 8;
                         set_cursor(disp_pos / 2);
                         *esc_p++ = '\t';
                         break;
@@ -331,7 +331,7 @@ PRIVATE void show_buf(int flag)
                         disp_pos = 160 * (disp_pos / 160 + 1);
                         break;
                 case '\t':
-                        disp_str("    ");
+                        disp_pos += 8;
                         break;
                 default:
                         output[0] = *q;
@@ -384,7 +384,7 @@ PRIVATE void show_matching()
                                 }
                                 else
                                 {
-                                        disp_color_str("    ", 0x01);
+                                        disp_pos += 8;
                                 }
                         }
                 }
@@ -397,7 +397,7 @@ PRIVATE void show_matching()
                         }
                         else
                         {
-                                disp_str("    ");
+                                disp_pos += 8;
                         }
                 }
                 q = tmp1;
