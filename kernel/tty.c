@@ -107,7 +107,7 @@ PRIVATE void handle_normal(u32 key)
                                 //撤销
                                 if (tty_p > tty_buf)
                                 {
-                                        if (*tty_p == '\b')
+                                        if (*(tty_p - 1) == '\b')
                                         {
                                                 backspace_count--;
                                         }
@@ -204,7 +204,7 @@ PRIVATE void handle_esc(u32 key)
                                 //撤销
                                 if (esc_p > esc_buf)
                                 {
-                                        if (*esc_p == '\b')
+                                        if (*(esc_p - 1) == '\b')
                                         {
                                                 esc_back_count--;
                                         }
